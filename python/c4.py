@@ -14,6 +14,8 @@ import abupy
 from abupy import ABuSymbolPd
 from abupy import xrange, pd_resample
 
+
+
 warnings.filterwarnings('ignore')
 sns.set_context(rc={'figure.figsize': (14, 7)})
 # 使用沙盒数据，目的是和书中一样的数据环境
@@ -48,8 +50,11 @@ def sample_412():
     4.1.2 索引行列序列
     :return:
     """
+
+    print('xrange:', xrange(stock_day_change.shape[0]))
+
     # 股票0 -> 股票stock_day_change.shape[0]
-    stock_symbols = ['股票 ' + str(x) for x in
+    stock_symbols = ['股票 1 ' + str(x) for x in
                      xrange(stock_day_change.shape[0])]
     # 通过构造直接设置index参数，head(2)就显示两行，表4-2所示
     print('pd.DataFrame(stock_day_change, index=stock_symbols).head(2):\n',
@@ -57,6 +62,9 @@ def sample_412():
     # 从2017-1-1向上时间递进，单位freq='1d'即1天
     days = pd.date_range('2017-1-1',
                          periods=stock_day_change.shape[1], freq='1d')
+
+    print('days:', days)
+
     # 股票0 -> 股票stock_day_change.shape[0]
     stock_symbols = ['股票 ' + str(x) for x in
                      xrange(stock_day_change.shape[0])]
@@ -448,11 +456,11 @@ def sample_46():
 
 
 if __name__ == "__main__":
-    sample_411()
+    # sample_411()
     # sample_412()
     # sample_413()
     # sample_414()
-    # sample_415()
+    sample_415()
     # sample_420()
     # sample_421()
     # sample_422()

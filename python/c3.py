@@ -105,6 +105,7 @@ def sample_314():
     3.1.4 数据转换与规整
     :return:
     """
+    print('stock_day_change:\n', stock_day_change)
     print('stock_day_change[0:2, 0:5]:\n', stock_day_change[0:2, 0:5])
     print('[0:2, 0:5].astype(int):\n', stock_day_change[0:2, 0:5].astype(int))
     # 2代表保留两位小数
@@ -425,7 +426,7 @@ def sample_342():
 
 
 if __name__ == "__main__":
-    sample_311()
+    # sample_311()
     # sample_312()
     # sample_313()
     # sample_314()
@@ -436,4 +437,4 @@ if __name__ == "__main__":
     # sample_322()
     # sample_331()
     # sample_332()
-    # sample_342()
+    sample_342()
