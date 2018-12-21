@@ -129,6 +129,9 @@ def sample_415():
                      xrange(stock_day_change.shape[0])]
     df = pd.DataFrame(stock_day_change, index=stock_symbols, columns=days)
     df = df.T
+
+    print('df.T:', df)
+
     df_stock0 = df['股票 0']
 
     # 以5天为周期重采样（周k）
@@ -165,6 +168,7 @@ tsla_df = ABuSymbolPd.make_kl_df('usTSLA', n_folds=2)
 def sample_420():
     # 表4-7所示
     print('tsla_df.tail():\n', tsla_df.tail())
+    print('tsla_df.tail():\n', len(tsla_df))
 
 
 def sample_421():
@@ -201,7 +205,7 @@ def sample_422():
     print('tsla_df.iloc[35:37]:\n', tsla_df.iloc[35:37])
 
     # 指定一个列
-    print('tsla_df.close[0:3]:\n', tsla_df.close[0:3])
+    print('tsla_df.close[0:3]:\n', tsla_df.close[0:3][0])
     # 通过组成一个列表选择多个列，表4-12所示
     print('tsla_df[][0:3]:\n', tsla_df[['close', 'high', 'low']][0:3])
 
@@ -240,6 +244,7 @@ def sample_424_2():
     4.2.4_1 数据转换处理 pct_change
     :return:
     """
+    print('tsla_df[:3]:\n', tsla_df[:3])
     print('tsla_df.close[:3]:\n', tsla_df.close[:3])
     print('tsla_df.close.pct_change()[:3]:\n', tsla_df.close.pct_change()[:3])
     print('(223.54 - 222.49) / 222.49, (223.57 - 223.54) / 223.54:', (223.54 - 222.49) / 222.49,
@@ -395,6 +400,7 @@ def sample_45_1():
     for kl_index in np.arange(0, tsla_df.shape[0]):
         # 通过ix一个一个拿
         today = tsla_df.ix[kl_index]
+        print('today:', today.close)
         judge_jump(today)
 
     # filter按照顺序只显示这些列, 表4-26所示

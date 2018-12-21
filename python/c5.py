@@ -100,7 +100,9 @@ def sample_513():
     5.1.3 k线图的绘制
     :return:
     """
-    import matplotlib.finance as mpf
+    # import matplotlib.finance as mpf
+    import mpl_finance as mpf
+    from matplotlib.pylab import date2num
 
     __colorup__ = "red"
     __colordown__ = "green"
@@ -113,7 +115,7 @@ def sample_513():
             zip(tsla_part_df.index, tsla_part_df.open, tsla_part_df.close,
                 tsla_part_df.high, tsla_part_df.low)):
         # 蜡烛图的日期要使用matplotlib.finance.date2num进行转换为特有的数字值
-        d = mpf.date2num(d)
+        d = date2num(d)
         # 日期，开盘，收盘，最高，最低组成tuple对象val
         val = (d, o, c, h, l)
         # 加val加入qutotes
@@ -132,6 +134,7 @@ def sample_52():
     :return:
     """
     from abupy import ABuMarketDrawing
+
     ABuMarketDrawing.plot_candle_form_klpd(tsla_df, html_bk=True)
 
 
@@ -731,7 +734,7 @@ def sample_582_1():
     nd.atr.plot_atr_from_klpd(tsla_df)
 
 if __name__ == "__main__":
-    sample_511()
+    # sample_511()
     # sample_512()
     # sample_513()
     # sample_52()
@@ -745,7 +748,7 @@ if __name__ == "__main__":
     # sample_55_2()
     # sample_56_1()
     # sample_56_2()
-    # sample_56_3()
+    sample_56_3()
     # sample_571_1()
     # sample_571_2()
     # sample_572()
