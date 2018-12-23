@@ -1,0 +1,44 @@
+
+
+int n1;  //   default =3
+ 
+int n2;  //   default =3
+
+
+
+position = 0; // 持仓， 正为多，负为空
+
+int counter = 0;//计数器，只管当前tick状态
+
+
+counter_his = [] //记录每一个周期的counter值
+
+ high_t = Highest(High, n2);  //过去n2个K的最高点的最高值
+
+ low_t = Loest( Low, n2);  // 过去n2个K的最低点的最低值
+
+
+if(Close > high_t[1] ) //如果当前k的close 大于截止到上一个K的high_t
+	counter += 1;  //计数器 +1
+
+
+if(Close < low_t[1])
+	counter -= 1;//反之， 计数器 -1
+
+counter_his[].append(counter)
+
+//计数器达到一定值，认为有连续趋势了，否则认为是波动
+
+if （position <= 0 and counter_his[-2] == n1 and counter_his[-1] == n1+1）
+	//看多趋势
+	buy；
+	position += 1;
+
+if （position >=0  and counter_his[-2] == -n1 and counter_his[-1] == -n1-1 ）
+	//看空趋势
+	sell；
+	position -= 1;
+/////////////////////////////////////止盈止损
+
+止盈  3%
+止损  3%

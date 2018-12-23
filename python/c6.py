@@ -99,6 +99,8 @@ def sample_612():
     # 生成9个subplots 3*3
     _, axs = plt.subplots(nrows=3, ncols=3, figsize=(15, 15))
 
+    print('axs:', axs)
+
     # 将 3 * 3转换成一个线性list
     axs_list = list(itertools.chain.from_iterable(axs))
     # 1-9次多项式回归
@@ -833,7 +835,7 @@ def sample_634():
 
 
 if __name__ == "__main__":
-    sample_611_1()
+    # sample_611_1()
     # sample_611_2()
     # sample_612()
     # sample_613()
@@ -848,4 +850,4 @@ if __name__ == "__main__":
     # sample_630()
     # sample_631()
     # sample_632()
-    # sample_634()
+    sample_634()
